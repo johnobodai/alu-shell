@@ -1,0 +1,7 @@
+#!/bin/bash
+for file in /home/j0hn/Documents/Alu/Tri2/Git/alu-shell/io_redirections_and_filters/*
+do
+    echo '#!/bin/bash' >> ${file}
+done
+ 
+#!/bin/bash
