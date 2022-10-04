@@ -1,0 +1,7 @@
+#!/bin/bash
+for file in //home/j0hn/Documents/Alu/Tri2/Git/alu-shell/init_files_variables_and_expansions/*
+do
+    echo '#!/bin/bash' >> ${file}
+done
+
+#!/bin/bash
