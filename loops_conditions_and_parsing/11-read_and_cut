@@ -1,1 +1,11 @@
 #!/usr/bin/env bash
+#Display the contents of the file /etc/passwd
+#Display username
+#Display user id
+#Display Home directoryfor the user
+
+((n=1))
+while [ $n -le 1 ]; do
+	cut -d: -f 2,4,7 </etc/passwd
+	((n++))
+done

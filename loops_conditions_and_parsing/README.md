@@ -1,2 +1,1 @@
-this is my README file
-#!/usr/bin/env bash
+This is the readme file for this directory

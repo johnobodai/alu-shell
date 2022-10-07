@@ -1,14 +1,7 @@
 #!/usr/bin/env bash
-# This script is displaying "Best School" 10 times
-i=0
-
-until false; do
-    echo "Best School"
-    ((i++))
-    if [[ $i -lt 10 ]]; then 
-        continue
-    else
-        break
-    fi
+#Bash script that displays Best School 10 times Until loop
+((n=1))
+until [ $n -gt 10 ]; do
+	echo "Best School"
+	((n++))
 done
-
