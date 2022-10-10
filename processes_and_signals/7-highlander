@@ -1,1 +1,9 @@
 #!/usr/bin/env bash
+# Displays a string indefinitely with a sleep period of 2
+
+while true
+do 
+    echo "To infinity and beyond"
+    sleep 2
+    trap "echo I am invinsible!!!" SIGTERM
+done
