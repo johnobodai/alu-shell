@@ -1,37 +1,29 @@
 #!/usr/bin/env bash
 # manages manage_my_process
 
-start_action() {
-	# starts manage_my_process in the background
-	./manage_my_process &
-	# creates /var/run/my_process.pid with its PID inside
-	echo $!>/var/run/my_process.pid
-}
-stop_action() {
-    	kill manage_my_process
-	pkill -f ./manage_my_process
-	# delete /var/run/my_process.pid with force option and sudo to make sure it’s deleted
-	sudo rm /var/run/my_process.pid
-}
+command="$1"
 
-case "$1" in
-start)
-    start_action
-    echo "manage_my_process started"
-    ;;
+if [ -z "$command" ]; then
+  echo "Usage: manage_my_process {start|stop|restart}"
+  exit
+fi
 
-stop)
-    stop_action
-    echo "manage_my_process stopped"
-    ;;
+if [ "$command" == "start" ]; then
 
-restart)
-    stop_action
-    start_action
-    echo "manage_my_process restarted"
-    ;;
+  bash ./manage_my_process &
+  echo "$!" > /var/run/my_process.pid
+  echo "manage_my_process started"
 
-*)
-    echo "Usage: manage_my_process {start|stop|restart}"
-    ;;
-esac
+elif [ "$command" == "stop" ]; then
+  [ -e "/var/run/my_process.pid" ] && pkill -f './manage_my_process' && rm /var/run/my_process.pid
+  echo "manage_my_process stopped"
+
+elif [ "$command" == "restart" ]; then
+
+  "$0" stop >& /dev/null
+  "$0" start >& /dev/null
+  echo "manage_my_process restarted"
+
+else
+  echo "Usage: manage_my_process {start|stop|restart}" 
+fi
