@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # Displays a list of currently running process
 
-ps -AHo user,pid,%cpu,%mem,vsz,rss,tty,stat,start,time,command
+ps -aux
