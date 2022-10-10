@@ -1,1 +1,4 @@
 #!/usr/bin/env bash
+# Displays a list of currently running process
+
+ps -Ao pid,tt,user,fname,tmout,f,wchan
