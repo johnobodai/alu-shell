@@ -4,5 +4,5 @@
 # Displays in a user-oriented farmat
 # Show process heirachy
 
-ps -AuH
+ps auxf
 
