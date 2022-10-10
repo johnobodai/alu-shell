@@ -1,1 +1,15 @@
 #!/usr/bin/env bash
+# An infinite loop that terminated only with the kill command
+
+_jon ()
+{
+    kill -s SIGTERM $!
+    exit 0   
+}
+
+trap _jon SIGINT SIGTERM
+
+while [ 1 ]
+do 
+    echo "To infinity and beyond"
+done
