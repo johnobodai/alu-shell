@@ -1,1 +1,4 @@
 #!/usr/bin/env bash
+#Terminate or kill a the highlander file
+
+pgrep -f 7-highlander | xargs kill -SIGKILL
