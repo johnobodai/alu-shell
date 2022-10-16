@@ -4,7 +4,7 @@
 case "$1" in
  	start)
 # starts manage_my_process in the background		
- 	./manage_my_process &
+ 	./var/run/manage_my_process &
 # creates /var/run/my_process.pid with its PID inside
  	echo $$>/var/run/my_process.pid
 # then display manage_my_process started
